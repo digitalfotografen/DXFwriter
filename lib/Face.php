@@ -10,7 +10,7 @@ require_once 'Entity.php';
 *
 */
 
-class Face extends Entity{
+class DxfFace extends DxfEntity{
 
 	/*
 	* Constructor

@@ -9,7 +9,7 @@ require_once 'Entity.php';
 * points (required) default array of points
 */
 
-class Line extends Entity{
+class DxfLine extends DxfEntity{
 
 	/*
 	* Constructor

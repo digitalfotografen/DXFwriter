@@ -14,7 +14,7 @@ require_once 'Entity.php';
 * flag default 0
 */
 
-class LwPolyLine extends Entity{
+class DxfLwPolyLine extends DxfEntity{
 
 	/*
 	* Constructor

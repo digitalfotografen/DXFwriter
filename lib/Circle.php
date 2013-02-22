@@ -10,7 +10,7 @@ require_once 'Entity.php';
 * radius default 1
 */
 
-class Circle extends Entity{
+class DxfCircle extends DxfEntity{
 
 	/*
 	* Constructor

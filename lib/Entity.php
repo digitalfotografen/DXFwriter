@@ -9,7 +9,7 @@ require_once 'BaseClass.php';
 * 
 */
 
-class Entity extends BaseClass{
+class DxfEntity extends DxfBaseClass{
 
 	var $parent = null;
 

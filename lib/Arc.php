@@ -11,7 +11,7 @@ require_once 'Entity.php';
 * startAngle default 0.1
 * endAngle default 90
 */
-class Arc extends Entity{
+class DxfArc extends DxfEntity{
 
 	/*
 	* Constructor

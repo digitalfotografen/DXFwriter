@@ -19,7 +19,7 @@ require_once 'BaseClass.php';
 *
 */
 
-class View extends BaseClass{
+class DxfView extends DxfBaseClass{
 
 	/*
 	* Constructor
@@ -70,7 +70,7 @@ class View extends BaseClass{
 }
 
 // helper function to generate view window
-function ViewByWindow($name, 
+function DxfViewByWindow($name, 
 						$leftBottom = array(0,0),
 						$rightTop = array(1,1),
 						$attributes = array()){
@@ -81,6 +81,6 @@ function ViewByWindow($name,
 		$defaults['center'] = array(0.5*($rightTop[0] + $leftBottom[0]),
 									0.5*($rightTop[1] + $leftBottom[1]));
 
-	return new View(array_merge($defaults, $attributes));
+	return new DxfView(array_merge($defaults, $attributes));
 }
 ?>

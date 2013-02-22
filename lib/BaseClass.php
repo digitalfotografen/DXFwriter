@@ -5,7 +5,7 @@
 * This is the base class to all classes in DXFwriter
 * Data is stored in the attributes array
 */
-class BaseClass{
+class DxfBaseClass{
 	var $attributes;
 
 	/*

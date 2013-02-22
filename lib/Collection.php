@@ -12,7 +12,7 @@ require_once 'Entity.php';
 * 
 */
 
-class Collection extends BaseClass{
+class DxfCollection extends DxfBaseClass{
 	var $entities = null;
 	
 	/*

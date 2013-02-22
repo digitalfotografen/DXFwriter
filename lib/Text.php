@@ -11,7 +11,7 @@ require_once 'Entity.php';
 * height default 1
 */
 
-class Text extends Entity{
+class DxfText extends DxfEntity{
 
 	/*
 	* Constructor

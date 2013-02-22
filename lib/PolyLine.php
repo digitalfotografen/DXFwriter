@@ -16,7 +16,7 @@ require_once 'Entity.php';
 * width (optional)
 */
 
-class PolyLine extends Entity{
+class DxfPolyLine extends DxfEntity{
 
 	/*
 	* Constructor

@@ -11,7 +11,7 @@ require_once 'BaseClass.php';
 * lineType default 'continuous'
 */
 
-class Layer extends BaseClass{
+class DxfLayer extends DxfBaseClass{
 
 	/*
 	* Constructor

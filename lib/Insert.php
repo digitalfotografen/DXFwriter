@@ -10,7 +10,7 @@ require_once 'Entity.php';
 *
 */
 
-class Insert extends Entity{
+class DxfInsert extends DxfEntity{
 
 	/*
 	* Constructor

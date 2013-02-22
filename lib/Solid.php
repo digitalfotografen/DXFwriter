@@ -9,7 +9,7 @@ require_once 'Entity.php';
 * points (required) array of three or four points
 */
 
-class Solid extends Entity{
+class DxfSolid extends DxfEntity{
 
 	/*
 	* Constructor

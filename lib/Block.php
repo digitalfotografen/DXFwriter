@@ -20,7 +20,7 @@ require_once 'Collection.php';
 * bigFont default ''
 */
 
-class Block extends Collection{
+class DxfBlock extends DxfCollection{
 
 	/*
 	* Constructor

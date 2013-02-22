@@ -14,7 +14,7 @@ require_once 'BaseClass.php';
 * TODO: Implement lineType elements
 */
 
-class LineType extends BaseClass{
+class DxfLineType extends DxfBaseClass{
 
 	/*
 	* Constructor

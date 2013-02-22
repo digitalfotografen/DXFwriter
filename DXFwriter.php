@@ -22,7 +22,7 @@ require_once 'lib/Text.php';
 
 
 
-class Drawing extends Collection{
+class DxfWriter extends DxfCollection{
 	
 	var $blocks = null;
 	var $layers = null;
@@ -34,15 +34,15 @@ class Drawing extends Collection{
 		$defaults['insbase'] = array(0.0, 0.0, 0.0);
 		$defaults['extmin'] = array(0.0, 0.0);
 		$defaults['extmax'] = array(0.0, 0.0);
-		$defaults['linetypes'] = array(new LineType());
+		$defaults['linetypes'] = array(new DxfLineType());
 		$defaults['fileName'] = 'test.dxf';
 		parent::__construct(array_merge($defaults, $attributes));
 		
 		$this->attributes['acadver'] = "9\n\$ACADVER\n1\nAC1006\n";
 		
 		$this->blocks = array();
-		$this->layers = array(new Layer());
-		$this->styles = array(new Style());
+		$this->layers = array(new DxfLayer());
+		$this->styles = array(new DxfStyle());
 		$this->views = array();
 		
 		//echo print_r($this->attributes);

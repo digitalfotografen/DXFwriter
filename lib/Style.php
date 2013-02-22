@@ -17,7 +17,7 @@ require_once 'BaseClass.php';
 *
 */
 
-class Style extends BaseClass{
+class DxfStyle extends DxfBaseClass{
 
 	/*
 	* Constructor
