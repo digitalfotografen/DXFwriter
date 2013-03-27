@@ -42,7 +42,7 @@ class DxfPolyLine extends DxfEntity{
 		$result = sprintf("0\nPOLYLINE\n66\n1\n%s\n70\n%s\n%s", // 66\n1\n entities follow
 									$this->common(),
 									$this->attributes['flag'],
-									point(array(0,0))
+									point($this->attributes['points'][0])
 				);
 		if (isset($this->attributes['width'])){
 			$result .= sprintf("43\n%s\n", 
