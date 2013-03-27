@@ -39,17 +39,19 @@ class DxfPolyLine extends DxfEntity{
 	*/
 	function __toString(){
 		// TODO all are string values, maybee som should be decimal
-		$result = sprintf("0\nPOLYLINE\n%s\n70\n%s\n",
+		$result = sprintf("0\nPOLYLINE\n66\n1\n%s\n70\n%s\n%s", // 66\n1\n entities follow
 									$this->common(),
-									$this->attributes['flag']
+									$this->attributes['flag'],
+									point(array(0,0))
 				);
-		foreach ($this->attributes['points'] as $p){
-			$result .= sprintf("0\nVERTEX\n%s", point($p));
-		}
 		if (isset($this->attributes['width'])){
-			$result .= sprintf("40\n%s\n41\n%s\n", 
-								$this->attributes['width'], 
+			$result .= sprintf("43\n%s\n", 
 								$this->attributes['width']);
+		}
+		foreach ($this->attributes['points'] as $p){
+			$result .= sprintf("0\nVERTEX\n%s\n%s", 
+									$this->common(), 
+									point($p));
 		}
 		$result .= "0\nSEQEND\n";
 		return $result;

@@ -60,7 +60,7 @@ function point($x, $index = 0){
 	
 	//echo print_r($x);
 	for ($i = 0; $i < count($x); $i++){
-		$strings[] = sprintf("%s\n%f\n", 10*($i+1)+$index, $x[$i]);
+		$strings[] = sprintf("%s\n%1.3F\n", 10*($i+1)+$index, $x[$i]);
 	}
 	return implode($strings);
 }
@@ -73,13 +73,31 @@ function point($x, $index = 0){
 * @param  	Array	$p	array of arrays with points
 * @return 	string	a string with all points
 */
-function points($p){
+function points($p, $useIndex = true){
 	$strings = array();
 	
 	for ($i=0; $i < count($p); $i++){
-		$strings[] = point($p[$i], $i);
+		if ($useIndex){
+			$strings[] = point($p[$i], $i);
+		} else {
+			$strings[] = point($p[$i], 0);
+		}
 	}
 	return implode($strings);
+}
+
+/*
+*
+*
+*/
+
+function tdDate($date){
+	$t = date('U', $date);
+	return $t / 86400 + 2440587.5; // convert days since epoch to julian date
+}
+
+function cDate($date){
+	return date("Ymd.His", $date);
 }
 
 

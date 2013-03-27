@@ -25,6 +25,7 @@ require_once 'lib/Text.php';
 class DxfWriter extends DxfCollection{
 	
 	var $blocks = null;
+	var $header = null;
 	var $layers = null;
 	var $styles = null;
 	var $views = null;
@@ -36,11 +37,14 @@ class DxfWriter extends DxfCollection{
 		$defaults['extmax'] = array(0.0, 0.0);
 		$defaults['linetypes'] = array(new DxfLineType());
 		$defaults['fileName'] = 'test.dxf';
+		//$defaults['tdcreate'] = time();
+		
 		parent::__construct(array_merge($defaults, $attributes));
 		
-		$this->attributes['acadver'] = "9\n\$ACADVER\n1\nAC1006\n";
+		$this->attributes['acadver'] = "9\n\$ACADVER\n1\nAC1009\n"; //version R14
 		
 		$this->blocks = array();
+		$this->header = array($this->attributes['acadver']);
 		$this->layers = array(new DxfLayer());
 		$this->styles = array(new DxfStyle());
 		$this->views = array();
@@ -81,6 +85,14 @@ class DxfWriter extends DxfCollection{
 		$this->blocks[] = $block;
 	}
 
+	function appendHeader($header){
+		$this->header[] = $header;
+	}
+
+	function appendLayer($layer){
+		$this->layers[] = $layer;
+	}
+
 	function appendStyle($style){
 		$this->styles[] = $style;
 	}
@@ -89,16 +101,21 @@ class DxfWriter extends DxfCollection{
 		$this->views[] = $view;
 	}
 
+	function setAttribute($name, $value){
+		$this->attributes[$name] = $value;
+	}
+
 	/*
 	* Returns drawing as dxf string.
 	*/
 	function __toString(){
 		
-		$header = array($this->attributes['acadver']);
-		$header[] = $this->point('insbase', $this->attributes['insbase']);
-		$header[] = $this->point('extmin', $this->attributes['extmin']);
-		$header[] = $this->point('extmax', $this->attributes['extmax']);
-		$header = $this->section('header', $header);
+		$this->header[] = $this->point('insbase', $this->attributes['insbase']);
+		$this->header[] = $this->point('extmin', $this->attributes['extmin']);
+		$this->header[] = $this->point('extmax', $this->attributes['extmax']);
+		//$this->header[] = $this->point('extmax', $this->attributes['extmax']);
+		//$this->header[] = sprintf("9\n\$%s\n40\n%s\n",'TDCREATE', tdDate($this->attributes['tdcreate'])); 
+		$header = $this->section('header', $this->header);
 		
 		$tables = array();
 		$tables[] = $this->table('ltype', $this->stringArray($this->attributes['linetypes']) );

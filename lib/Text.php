@@ -31,7 +31,7 @@ class DxfText extends DxfEntity{
 	/*
 	* __toString
 	* Returns a string representation of entity
-	* Calles common of parent to output common attributes
+	* Calls common of parent to output common attributes
 	* @return 	string	the string representation of this entity
 	*/
 	function __toString(){
@@ -68,7 +68,7 @@ class DxfText extends DxfEntity{
 		}		
 		if (isset($this->attributes['justifyver'])){
 			$result .= sprintf("73\n%s\n", $this->attributes['justifyver']);
-		}		
+		}
 		return $result;
 	}
 }

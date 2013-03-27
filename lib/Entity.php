@@ -38,25 +38,25 @@ class DxfEntity extends DxfBaseClass{
 	* @return 	string	the string representation of defined common attributes
 	*/
 	function common(){
-		$parent = isset($parent) ? $this->parent : $this;
-		$result = sprintf("8\n%s", $parent->attributes['layer']);
-		if (isset($parent->attributes['color'])){
-			$result .= sprintf("\n62\n%s", $parent->attributes['color']);
+		//$parent = isset($parent) ? $this->parent : $this;
+		$result = sprintf("8\n%s", $this->attributes['layer']);
+		if (isset($this->attributes['color'])){
+			$result .= sprintf("\n62\n%s", $this->attributes['color']);
 		}
-		if (isset($parent->attributes['extrusion'])){
-			$result .= sprintf("\n%s", point($parent->attributes['extrusion'], 200));
+		if (isset($this->attributes['extrusion'])){
+			$result .= sprintf("\n%s", point($this->attributes['extrusion'], 200));
 		}
-		if (isset($parent->attributes['lineType'])){
-			$result .= sprintf("\n6\n%s", $parent->attributes['lineType']);
+		if (isset($this->attributes['lineType'])){
+			$result .= sprintf("\n6\n%s", $this->attributes['lineType']);
 		}
-		if (isset($parent->attributes['lineWeight'])){
-			$result .= sprintf("\n370\n%s", $parent->attributes['lineWeight']);
+		if (isset($this->attributes['lineWeight'])){
+			$result .= sprintf("\n370\n%s", $this->attributes['lineWeight']);
 		}
-		if (isset($parent->attributes['lineTypeScale'])){
-			$result .= sprintf("\n48\n%s", $parent->attributes['lineTypeScale']);
+		if (isset($this->attributes['lineTypeScale'])){
+			$result .= sprintf("\n48\n%s", $this->attributes['lineTypeScale']);
 		}
-		if (isset($parent->attributes['thickness'])){
-			$result .= sprintf("\n39\n%s", $parent->attributes['thickness']);
+		if (isset($this->attributes['thickness'])){
+			$result .= sprintf("\n39\n%s", $this->attributes['thickness']);
 		}
 		return $result;
 	}

@@ -37,17 +37,18 @@ class DxfLwPolyLine extends DxfEntity{
 	*/
 	function __toString(){
 		// TODO all are string values, maybee som should be decimal
-		$result = sprintf("0\nLWPOLYLINE\n%s\n70\n%s\n%s\n90\n%s",
+		$result = sprintf("0\nLWPOLYLINE\n%s\n70\n%s\n",
 									$this->common(),
-									$this->attributes['flag'],
-									count($this->attributes['points']),
-									points($this->attributes['points'])
-				);
+									$this->attributes['flag']
+		);
 		if (isset($this->attributes['width'])){
-			$result .= sprintf("40\n%s\n41\n%s\n", 
-								$this->attributes['width'], 
+			$result .= sprintf("43\n%s\n", 
 								$this->attributes['width']);
 		}		
+		$result .= sprintf("90\n%s\n%s",
+								count($this->attributes['points']),
+								points($this->attributes['points'], false)
+		);
 		return $result;
 	}
 }

@@ -37,7 +37,7 @@ class DxfLayer extends DxfBaseClass{
 	function __toString(){
 		// TODO all are string values, maybee som should be decimal
 		return sprintf("0\nLAYER\n2\n%s\n70\n%s\n62\n%s\n6\n%s",
-									strtoupper($this->attributes['name']),
+									$this->attributes['name'],
 									$this->attributes['flag'],
 									$this->attributes['color'],
 									$this->attributes['lineType']
