@@ -43,6 +43,11 @@ class DxfEntity extends DxfBaseClass{
 		if (isset($this->attributes['color'])){
 			$result .= sprintf("\n62\n%s", $this->attributes['color']);
 		}
+/*
+		if (isset($this->attributes['rgbColor'])){
+			$result .= sprintf("\n420\n%s", $this->attributes['rgbColor']);
+		}
+*/		
 		if (isset($this->attributes['extrusion'])){
 			$result .= sprintf("\n%s", point($this->attributes['extrusion'], 200));
 		}

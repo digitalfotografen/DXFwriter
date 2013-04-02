@@ -35,7 +35,6 @@ class DxfWriter extends DxfCollection{
 		$defaults['insbase'] = array(0.0, 0.0, 0.0);
 		$defaults['extmin'] = array(0.0, 0.0);
 		$defaults['extmax'] = array(0.0, 0.0);
-		$defaults['linetypes'] = array(new DxfLineType());
 		$defaults['fileName'] = 'test.dxf';
 		//$defaults['tdcreate'] = time();
 		
@@ -46,6 +45,7 @@ class DxfWriter extends DxfCollection{
 		$this->blocks = array();
 		$this->header = array($this->attributes['acadver']);
 		$this->layers = array(new DxfLayer());
+		$this->lineTypes = array(new DxfLineType());
 		$this->styles = array(new DxfStyle());
 		$this->views = array();
 		
@@ -93,6 +93,10 @@ class DxfWriter extends DxfCollection{
 		$this->layers[] = $layer;
 	}
 
+	function appendLineType($lineType){
+		$this->lineTypes[] = $lineType;
+	}
+
 	function appendStyle($style){
 		$this->styles[] = $style;
 	}
@@ -118,7 +122,7 @@ class DxfWriter extends DxfCollection{
 		$header = $this->section('header', $this->header);
 		
 		$tables = array();
-		$tables[] = $this->table('ltype', $this->stringArray($this->attributes['linetypes']) );
+		$tables[] = $this->table('ltype', $this->stringArray($this->lineTypes) );
 		$tables[] = $this->table('layer', $this->stringArray($this->layers) );
 		$tables[] = $this->table('style', $this->stringArray($this->styles) );
 		$tables[] = $this->table('view', $this->stringArray($this->views) );
