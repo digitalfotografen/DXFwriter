@@ -1,5 +1,5 @@
 <?php
-namespace DXFwriter;
+namespace DXF;
 
 /**
 * Block of Entities

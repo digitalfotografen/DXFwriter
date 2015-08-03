@@ -1,28 +1,7 @@
 <?php
-// DXF-writer
-// Inspired by https://github.com/nycresistor/SDXF/blob/master/sdxf.py
-require_once 'lib/BaseClass.php';
-require_once 'lib/Entity.php';
-require_once 'lib/Collection.php';
-require_once 'lib/Block.php';
-require_once 'lib/Layer.php';
-require_once 'lib/LineType.php';
-require_once 'lib/Style.php';
-require_once 'lib/View.php';
-require_once 'lib/Arc.php';
-require_once 'lib/Circle.php';
-require_once 'lib/Face.php';
-require_once 'lib/Insert.php';
-require_once 'lib/Line.php';
-require_once 'lib/LwPolyLine.php';
-require_once 'lib/Point.php';
-require_once 'lib/PolyLine.php';
-require_once 'lib/Solid.php';
-require_once 'lib/Text.php';
+namespace DXF;
 
-
-
-class DxfWriter extends DxfCollection{
+class Writer extends DxfCollection{
 	
 	var $blocks = null;
 	var $header = null;

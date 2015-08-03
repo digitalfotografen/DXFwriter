@@ -1,5 +1,5 @@
 <?php
-namespace DXFwriter;
+namespace DXF;
 
 /**
 * Single text line.

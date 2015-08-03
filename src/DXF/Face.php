@@ -1,15 +1,16 @@
 <?php
-namespace DXFwriter;
+namespace DXF;
 
 /**
-* Colored solid fill based on three or four points
+* 3dface
 * subclass of Entity
 * 
 * Used attributes
-* points (required) array of three or four points
+* points (required) default null
+*
 */
 
-class DxfSolid extends DxfEntity{
+class DxfFace extends DxfEntity{
 
 	/*
 	* Constructor
@@ -31,14 +32,10 @@ class DxfSolid extends DxfEntity{
 	*/
 	function __toString(){
 		// TODO all are string values, maybee som should be decimal
-		$result = sprintf("0\nSOLID\n%s\n%s",
+		return sprintf("0\n3DFACE\n%s\n%s",
 									$this->common(),
 									points($this->attributes['points'])
 				);
-		if (count($this->attributes['points']) < 4){
-			$result .= point($this->attributes['points'][2]);
-		}
-		return $result;
 	}
 }
 ?>

@@ -1,16 +1,15 @@
 <?php
-namespace DXFwriter;
+namespace DXF;
 
 /**
-* Circle
+* Line
 * subclass of Entity
 * 
 * Used attributes
-* center default array(0,0,0)
-* radius default 1
+* points (required) default array of points
 */
 
-class DxfCircle extends DxfEntity{
+class DxfLine extends DxfEntity{
 
 	/*
 	* Constructor
@@ -21,8 +20,6 @@ class DxfCircle extends DxfEntity{
 	*/
 	function __construct($attributes = array()){
 		$defaults = array();
-		$defaults['center'] = array(0, 0, 0);
-		$defaults['radius'] = 1;
 		parent::__construct(array_merge($defaults, $attributes));
 	}
 
@@ -34,11 +31,10 @@ class DxfCircle extends DxfEntity{
 	*/
 	function __toString(){
 		// TODO all are string values, maybee som should be decimal
-		return sprintf("0\nCIRCLE\n%s\n%s40\n%f\n",
+		return sprintf("0\nLINE\n%s\n%s",
 									$this->common(),
-									point($this->attributes['center']),
-									$this->attributes['radius']
+									points($this->attributes['points'])
 				);
 	}
 }
-
+?>

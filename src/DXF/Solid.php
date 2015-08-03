@@ -1,15 +1,15 @@
 <?php
-namespace DXFwriter;
+namespace DXF;
 
 /**
-* Line
+* Colored solid fill based on three or four points
 * subclass of Entity
 * 
 * Used attributes
-* points (required) default array of points
+* points (required) array of three or four points
 */
 
-class DxfLine extends DxfEntity{
+class DxfSolid extends DxfEntity{
 
 	/*
 	* Constructor
@@ -31,10 +31,14 @@ class DxfLine extends DxfEntity{
 	*/
 	function __toString(){
 		// TODO all are string values, maybee som should be decimal
-		return sprintf("0\nLINE\n%s\n%s",
+		$result = sprintf("0\nSOLID\n%s\n%s",
 									$this->common(),
 									points($this->attributes['points'])
 				);
+		if (count($this->attributes['points']) < 4){
+			$result .= point($this->attributes['points'][2]);
+		}
+		return $result;
 	}
 }
 ?>
