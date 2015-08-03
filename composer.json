@@ -16,6 +16,7 @@
 	},
 
 	"require": {
+		"phpunit/phpunit": "4.1.*"
 	},
 
 	"keywords": [
