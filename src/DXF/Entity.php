@@ -65,6 +65,4 @@ class Entity extends BaseClass{
 		}
 		return $result;
 	}
-}
-
-?>
+}#

@@ -48,7 +48,7 @@ class BaseClass{
 		}
 		return $strings;
 	}
-}
+}#
 
 /*
 * Convert point array to a dxf point
@@ -101,6 +101,3 @@ function tdDate($date){
 function cDate($date){
 	return date("Ymd.His", $date);
 }
-
-
-?>

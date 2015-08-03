@@ -51,6 +51,4 @@ class LwPolyLine extends Entity{
 		);
 		return $result;
 	}
-}
-
-?>
+}#

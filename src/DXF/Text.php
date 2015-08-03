@@ -71,5 +71,4 @@ class Text extends Entity{
 		}
 		return $result;
 	}
-}
-?>
+}#

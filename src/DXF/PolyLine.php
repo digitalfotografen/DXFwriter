@@ -56,5 +56,4 @@ class PolyLine extends Entity{
 		$result .= "0\nSEQEND\n";
 		return $result;
 	}
-}
-?>
+}#

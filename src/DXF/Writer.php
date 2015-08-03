@@ -123,7 +123,4 @@ class Writer extends Collection {
 		fwrite($fh, sprintf("%s", $this));
 		fclose($fh);
 	}
-}
-
-
-?>
+}#

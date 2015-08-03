@@ -40,5 +40,4 @@ class Solid extends Entity{
 		}
 		return $result;
 	}
-}
-?>
+}#

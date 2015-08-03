@@ -64,5 +64,4 @@ class Insert extends Entity{
 		}
 		return $result;
 	}
-}
-?>
+}#

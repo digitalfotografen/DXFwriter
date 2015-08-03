@@ -45,5 +45,4 @@ class Arc extends Entity{
 									$this->attributes['endAngle']
 				);
 	}
-}
-?>
+}#

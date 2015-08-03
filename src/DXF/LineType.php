@@ -76,5 +76,4 @@ class LineType extends BaseClass{
 				);
 		return $result;
 	}
-}
-?>
+}#

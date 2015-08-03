@@ -37,5 +37,4 @@ class Face extends Entity{
 									points($this->attributes['points'])
 				);
 	}
-}
-?>
+}#

@@ -43,5 +43,4 @@ class Layer extends BaseClass{
 									$this->attributes['lineType']
 				);
 	}
-}
-?>
+}#

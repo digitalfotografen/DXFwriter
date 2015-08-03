@@ -36,5 +36,4 @@ class Line extends Entity{
 									points($this->attributes['points'])
 				);
 	}
-}
-?>
+}#

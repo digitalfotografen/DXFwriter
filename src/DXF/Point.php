@@ -36,5 +36,4 @@ class Point extends Entity{
 									point($this->attributes['point'])
 				);
 	}
-}
-?>
+}#

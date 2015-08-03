@@ -58,5 +58,4 @@ class Style extends BaseClass{
 									strtoupper($this->attributes['font']),
 									strtoupper($this->attributes['bigFont']));
 	}
-}
-?>
+}#

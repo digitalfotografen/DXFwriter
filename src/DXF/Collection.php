@@ -55,6 +55,4 @@ class Collection extends BaseClass{
 		return implode($strings);
 	}
 
-}
-
-?>
+}#

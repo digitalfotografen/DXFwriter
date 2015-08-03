@@ -82,5 +82,4 @@ function ViewByWindow($name,
 									0.5*($rightTop[1] + $leftBottom[1]));
 
 	return new View(array_merge($defaults, $attributes));
-}
-?>
+}#
