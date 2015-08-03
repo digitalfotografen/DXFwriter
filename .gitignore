@@ -2,3 +2,5 @@
 *.dxf
 *.phar
 vendor/*
+test/Unit/Report/*
+test/Unit/phpunit.output.*
