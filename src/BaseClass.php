@@ -1,4 +1,6 @@
 <?php
+namespace DXFwriter;
+
 /**
 * Base class
 * 

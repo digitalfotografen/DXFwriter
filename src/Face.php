@@ -1,5 +1,5 @@
 <?php
-require_once 'Entity.php';
+namespace DXFwriter;
 
 /**
 * 3dface

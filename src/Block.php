@@ -1,5 +1,5 @@
 <?php
-require_once 'Collection.php';
+namespace DXFwriter;
 
 /**
 * Block of Entities

@@ -1,5 +1,5 @@
 <?php
-require_once 'BaseClass.php';
+namespace DXFwriter;
 
 /*
 * Style - Text style

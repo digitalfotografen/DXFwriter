@@ -1,5 +1,5 @@
 <?php
-require_once 'Entity.php';
+namespace DXFwriter;
 
 /**
 * Colored solid fill based on three or four points

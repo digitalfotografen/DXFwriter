@@ -1,6 +1,5 @@
 <?php
-require_once 'BaseClass.php';
-require_once 'Entity.php';
+namespace DXFwriter;
 
 /**
 * Collection of Entities
