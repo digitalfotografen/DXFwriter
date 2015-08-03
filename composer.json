@@ -1,0 +1,28 @@
+{
+	"name": "g105b/DXFwriter",
+
+	"description": "Write AutoCad DXF files",
+
+	"license": [
+		"MIT"
+	],
+
+	"type": "library",
+
+	"autoload": {
+		"psr-4": {
+			"DXFwriter\\": "./src/"
+		}
+	},
+
+	"require": {
+	},
+
+	"keywords": [
+		"dxf",
+		"autocad",
+		"drawing",
+		"CAD",
+		"3D"
+	]
+}
