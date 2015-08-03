@@ -17,24 +17,24 @@ public function testWriterOutputsFile() {
 }
 
 public function testFullOutput() {
-	$d = new DxfWriter();
+	$writer = new Writer();
 
-	$b = new DxfBlock(array('name' => 'test'));
-	$b->append(new DxfSolid(array('points' => array(array(0, 0),
+	$b = new Block(array('name' => 'test'));
+	$b->append(new Solid(array('points' => array(array(0, 0),
 												array(1, 0),
 												array(1, 1),
 												array(0, 1)),
 	            				'color' => 1)
 	));
 
-	$b->append(new DxfArc( array('center'=>array(1,0), 'color' => 2) ));
-	$d->appendBlock($b);
+	$b->append(new Arc( array('center'=>array(1,0), 'color' => 2) ));
+	$writer->appendBlock($b);
 
-	$d->appendStyle(new DxfStyle());
-	$d->appendView(new DxfView(array('name' =>'Normal')));
-	$d->appendView(DxfViewByWindow('Window', array(1,0), array(2,1)));
+	$writer->appendStyle(new Style());
+	$writer->appendView(new View(array('name' =>'Normal')));
+	$writer->appendView(View::byWindow('Window', array(1,0), array(2,1)));
 
-	$d->appendLineType(new DxfLineType(array(
+	$writer->appendLineType(new LineType(array(
 			'name' => 'DASHED',
 			'description' => '- - -',
 			'elements' => array(
@@ -43,8 +43,8 @@ public function testFullOutput() {
 			)
 	)));
 
-	$d->append(new DxfCircle(array('center' => array(1, 1), 'color'=>3)));
-	$d->append(new DxfFace(array('points'=>array(array(0, 0),
+	$writer->append(new Circle(array('center' => array(1, 1), 'color'=>3)));
+	$writer->append(new Face(array('points'=>array(array(0, 0),
 											array(1, 0),
 											array(1, 1),
 											array(0, 1)),
@@ -52,22 +52,23 @@ public function testFullOutput() {
 	));
 
 
-	$d->append(new DxfInsert(array('name'=>'test',
+	$writer->append(new Insert(array('name'=>'test',
 								'point'=>array(3, 3),
 								'cols'=>5,
 								'colspacing'=>2)));
 
-	$d->append(new DxfLine(array('lineType'=>'DASHED',
+	$writer->append(new Line(array('lineType'=>'DASHED',
 								'points'=>array(array(0, 0),
 											array(5, 5))
 	)));
+
 	/*
-	$d->append(new DxfLwPolyLine(array('points'=>array(array(0, 0),
+	$writer->append(new LwPolyLine(array('points'=>array(array(0, 0),
 											array(1, 0),
 											array(1, 1),
 											array(0, 1)),
 	            				'flag'=>129,
-	            				'layer' => "DXFWRITER",
+	            				'layer' => "Writer",
 	            				'color'=>7,
 	            				'width'=>1,
 	            				'lineType'=>'CONTINUOUS',
@@ -75,12 +76,11 @@ public function testFullOutput() {
 	));
 	*/
 
-	$d->append(new DxfPolyLine(array('points'=>array(array(1, 1),
+	$writer->append(new PolyLine(array('points'=>array(array(1, 1),
 											array(20, 10),
 											array(20, 20),
 											array(1, 15)),
 	            				'lineType'=>'DASHED',
-	//            				'layer' => 'DXFWRITER',
 	            				'flag' => 0
 	            				//'width' => 1,
 	            				//'color'=>1
@@ -88,19 +88,21 @@ public function testFullOutput() {
 	));
 
 
-	$d->append(new DxfPoint(array('point' => array(1, 1), 'color'=>1)));
-	$d->append(new DxfSolid(array('points' => array(array(4, 4),
+	$writer->append(new Point(array('point' => array(1, 1), 'color'=>1)));
+	$writer->append(new Solid(array('points' => array(array(4, 4),
 											array(5, 4),
 											array(7, 8),
 											array(9, 9)),
 								'color' => 3)
 	));
-	$d->append(new DxfText(array('text' => 'Testing testing!',
+	$writer->append(new Text(array('text' => 'Testing testing!',
 							'point' => array(3, 0)
 	)));
 
-	$d->saveAs('test.dxf');
-
+	$filePath = sys_get_temp_dir() . "/test.dxf";
+	$writer->saveAs($filePath);
+	$this->assertFileExists($filePath);
+	// TODO: Test contents of file.
 }
 
 }#

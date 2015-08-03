@@ -67,19 +67,18 @@ class View extends BaseClass{
 									$this->attributes['mode']
 				);
 	}
-}
 
-// helper function to generate view window
-function ViewByWindow($name,
+	public static function byWindow($name,
 						$leftBottom = array(0,0),
 						$rightTop = array(1,1),
 						$attributes = array()){
 
-		$defaults['name'] = $name;
-		$defaults['width'] = abs($rightTop[0] - $leftBottom[0]);
-		$defaults['height'] = abs($rightTop[1] - $leftBottom[1]);
-		$defaults['center'] = array(0.5*($rightTop[0] + $leftBottom[0]),
-									0.5*($rightTop[1] + $leftBottom[1]));
+			$defaults['name'] = $name;
+			$defaults['width'] = abs($rightTop[0] - $leftBottom[0]);
+			$defaults['height'] = abs($rightTop[1] - $leftBottom[1]);
+			$defaults['center'] = array(0.5*($rightTop[0] + $leftBottom[0]),
+										0.5*($rightTop[1] + $leftBottom[1]));
 
-	return new View(array_merge($defaults, $attributes));
+		return new View(array_merge($defaults, $attributes));
+	}
 }#
