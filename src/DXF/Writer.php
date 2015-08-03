@@ -1,7 +1,7 @@
 <?php
 namespace DXF;
 
-class Writer extends DxfCollection{
+class Writer extends Collection {
 	
 	var $blocks = null;
 	var $header = null;
@@ -23,9 +23,9 @@ class Writer extends DxfCollection{
 		
 		$this->blocks = array();
 		$this->header = array($this->attributes['acadver']);
-		$this->layers = array(new DxfLayer());
-		$this->lineTypes = array(new DxfLineType());
-		$this->styles = array(new DxfStyle());
+		$this->layers = array(new Layer());
+		$this->lineTypes = array(new LineType());
+		$this->styles = array(new Style());
 		$this->views = array();
 		
 		//echo print_r($this->attributes);

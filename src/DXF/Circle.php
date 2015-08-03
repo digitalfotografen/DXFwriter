@@ -10,7 +10,7 @@ namespace DXF;
 * radius default 1
 */
 
-class DxfCircle extends DxfEntity{
+class Circle extends Entity{
 
 	/*
 	* Constructor

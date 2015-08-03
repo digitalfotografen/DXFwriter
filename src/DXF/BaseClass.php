@@ -4,10 +4,10 @@ namespace DXF;
 /**
 * Base class
 * 
-* This is the base class to all classes in DXFwriter
+* This is the base class to all classes in Writer
 * Data is stored in the attributes array
 */
-class DxfBaseClass{
+class BaseClass{
 	var $attributes;
 
 	/*

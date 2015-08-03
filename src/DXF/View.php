@@ -19,7 +19,7 @@ namespace DXF;
 *
 */
 
-class DxfView extends DxfBaseClass{
+class View extends BaseClass{
 
 	/*
 	* Constructor
@@ -70,7 +70,7 @@ class DxfView extends DxfBaseClass{
 }
 
 // helper function to generate view window
-function DxfViewByWindow($name, 
+function ViewByWindow($name, 
 						$leftBottom = array(0,0),
 						$rightTop = array(1,1),
 						$attributes = array()){
@@ -81,6 +81,6 @@ function DxfViewByWindow($name,
 		$defaults['center'] = array(0.5*($rightTop[0] + $leftBottom[0]),
 									0.5*($rightTop[1] + $leftBottom[1]));
 
-	return new DxfView(array_merge($defaults, $attributes));
+	return new View(array_merge($defaults, $attributes));
 }
 ?>

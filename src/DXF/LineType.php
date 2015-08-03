@@ -14,7 +14,7 @@ namespace DXF;
 * TODO: Implement lineType elements
 */
 
-class DxfLineType extends DxfBaseClass{
+class LineType extends BaseClass{
 
 	/*
 	* Constructor

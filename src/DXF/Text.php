@@ -11,7 +11,7 @@ namespace DXF;
 * height default 1
 */
 
-class DxfText extends DxfEntity{
+class Text extends Entity{
 
 	/*
 	* Constructor

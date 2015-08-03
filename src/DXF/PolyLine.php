@@ -16,7 +16,7 @@ namespace DXF;
 * width (optional)
 */
 
-class DxfPolyLine extends DxfEntity{
+class PolyLine extends Entity{
 
 	/*
 	* Constructor

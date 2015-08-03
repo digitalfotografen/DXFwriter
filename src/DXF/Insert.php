@@ -10,7 +10,7 @@ namespace DXF;
 *
 */
 
-class DxfInsert extends DxfEntity{
+class Insert extends Entity{
 
 	/*
 	* Constructor

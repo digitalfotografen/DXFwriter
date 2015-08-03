@@ -11,7 +11,7 @@ namespace DXF;
 * startAngle default 0.1
 * endAngle default 90
 */
-class DxfArc extends DxfEntity{
+class Arc extends Entity{
 
 	/*
 	* Constructor

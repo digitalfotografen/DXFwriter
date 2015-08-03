@@ -9,7 +9,7 @@ namespace DXF;
 * point (required) array
 */
 
-class DxfPoint extends DxfEntity{
+class Point extends Entity{
 
 	/*
 	* Constructor

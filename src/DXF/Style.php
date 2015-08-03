@@ -17,7 +17,7 @@ namespace DXF;
 *
 */
 
-class DxfStyle extends DxfBaseClass{
+class Style extends BaseClass{
 
 	/*
 	* Constructor

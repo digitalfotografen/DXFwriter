@@ -10,7 +10,7 @@ namespace DXF;
 *
 */
 
-class DxfFace extends DxfEntity{
+class Face extends Entity{
 
 	/*
 	* Constructor

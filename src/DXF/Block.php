@@ -20,7 +20,7 @@ namespace DXF;
 * bigFont default ''
 */
 
-class DxfBlock extends DxfCollection{
+class Block extends Collection{
 
 	/*
 	* Constructor

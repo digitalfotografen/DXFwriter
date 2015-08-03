@@ -14,7 +14,7 @@ namespace DXF;
 * flag default 0
 */
 
-class DxfLwPolyLine extends DxfEntity{
+class LwPolyLine extends Entity{
 
 	/*
 	* Constructor

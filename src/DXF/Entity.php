@@ -9,7 +9,7 @@ namespace DXF;
 * 
 */
 
-class DxfEntity extends DxfBaseClass{
+class Entity extends BaseClass{
 
 	var $parent = null;
 

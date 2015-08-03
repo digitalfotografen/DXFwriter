@@ -7,11 +7,11 @@ namespace DXF;
 * Stores collections of geometric figures 
 *
 * Entities are stored inte the entities array
-* This is the base class of DXFwriter and Block
+* This is the base class of Writer and Block
 * 
 */
 
-class DxfCollection extends DxfBaseClass{
+class Collection extends BaseClass{
 	var $entities = null;
 	
 	/*

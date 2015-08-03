@@ -9,7 +9,7 @@ namespace DXF;
 * points (required) array of three or four points
 */
 
-class DxfSolid extends DxfEntity{
+class Solid extends Entity{
 
 	/*
 	* Constructor

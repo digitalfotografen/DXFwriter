@@ -9,7 +9,7 @@ namespace DXF;
 * points (required) default array of points
 */
 
-class DxfLine extends DxfEntity{
+class Line extends Entity{
 
 	/*
 	* Constructor
