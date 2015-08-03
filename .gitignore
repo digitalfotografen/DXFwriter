@@ -1,2 +1,4 @@
 .DS_Store
 *.dxf
+*.phar
+vendor/*
