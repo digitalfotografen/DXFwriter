@@ -3,7 +3,7 @@ namespace DXF;
 
 /*
 * Style - Text style
-* 
+*
 * Used attributes
 * name default 'standard'
 * flag default 0
@@ -22,7 +22,7 @@ class Style extends BaseClass{
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/

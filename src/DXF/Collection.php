@@ -3,21 +3,21 @@ namespace DXF;
 
 /**
 * Collection of Entities
-* 
-* Stores collections of geometric figures 
+*
+* Stores collections of geometric figures
 *
 * Entities are stored inte the entities array
 * This is the base class of Writer and Block
-* 
+*
 */
 
 class Collection extends BaseClass{
 	var $entities = null;
-	
+
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  	Array	$attributes	array of attributes
 	* @param  	Array	$entities array of entities
@@ -27,7 +27,7 @@ class Collection extends BaseClass{
 		foreach ($entities as $entity){
 			$this->append($entity->copy());
 		}
-		
+
 		parent::__construct($attributes);
 	}
 

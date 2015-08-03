@@ -8,7 +8,7 @@ namespace DXF;
 * TODO: Check how this should work
 *
 * subclass of Entity
-* 
+*
 * Used attributes
 * points (required) default none
 * flag default 0
@@ -19,7 +19,7 @@ class LwPolyLine extends Entity{
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
@@ -42,9 +42,9 @@ class LwPolyLine extends Entity{
 									$this->attributes['flag']
 		);
 		if (isset($this->attributes['width'])){
-			$result .= sprintf("43\n%s\n", 
+			$result .= sprintf("43\n%s\n",
 								$this->attributes['width']);
-		}		
+		}
 		$result .= sprintf("90\n%s\n%s",
 								count($this->attributes['points']),
 								points($this->attributes['points'], false)

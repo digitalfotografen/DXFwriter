@@ -4,7 +4,7 @@ namespace DXF;
 /**
 * Single text line.
 * subclass of Entity
-* 
+*
 * Used attributes
 * text default ''
 * point default array(0,0,0)
@@ -16,7 +16,7 @@ class Text extends Entity{
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
@@ -44,28 +44,28 @@ class Text extends Entity{
 				);
 		if (isset($this->attributes['rotation'])){
 			$result .= sprintf("50\n%s\n", $this->attributes['rotation']);
-		}		
+		}
 		if (isset($this->attributes['rotation'])){
 			$result .= sprintf("50\n%s\n", $this->attributes['rotation']);
-		}		
+		}
 		if (isset($this->attributes['xscale'])){
 			$result .= sprintf("41\n%s\n", $this->attributes['xscale']);
-		}		
+		}
 		if (isset($this->attributes['obliqueAngle'])){
 			$result .= sprintf("51\n%s\n", $this->attributes['obliqueAngle']);
-		}		
+		}
 		if (isset($this->attributes['style'])){
 			$result .= sprintf("7\n%s\n", $this->attributes['style']);
-		}		
+		}
 		if (isset($this->attributes['flag'])){
 			$result .= sprintf("71\n%s\n", $this->attributes['flag']);
-		}		
+		}
 		if (isset($this->attributes['justifyhor'])){
 			$result .= sprintf("72\n%s\n", $this->attributes['justifyhor']);
-		}		
+		}
 		if (isset($this->attributes['alignment'])){
 			$result .= sprintf("%s", point($this->attributes['alignment'], 1));
-		}		
+		}
 		if (isset($this->attributes['justifyver'])){
 			$result .= sprintf("73\n%s\n", $this->attributes['justifyver']);
 		}

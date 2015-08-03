@@ -9,7 +9,7 @@ namespace DXF;
 * TODO: Finish polyline (now implemented as a series of lines)
 *
 * subclass of Entity
-* 
+*
 * Used attributes
 * points (required) default none
 * flag default 0
@@ -21,7 +21,7 @@ class PolyLine extends Entity{
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
@@ -45,12 +45,12 @@ class PolyLine extends Entity{
 									point($this->attributes['points'][0])
 				);
 		if (isset($this->attributes['width'])){
-			$result .= sprintf("43\n%s\n", 
+			$result .= sprintf("43\n%s\n",
 								$this->attributes['width']);
 		}
 		foreach ($this->attributes['points'] as $p){
-			$result .= sprintf("0\nVERTEX\n%s\n%s", 
-									$this->common(), 
+			$result .= sprintf("0\nVERTEX\n%s\n%s",
+									$this->common(),
 									point($p));
 		}
 		$result .= "0\nSEQEND\n";

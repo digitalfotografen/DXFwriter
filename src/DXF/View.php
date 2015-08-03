@@ -3,7 +3,7 @@ namespace DXF;
 
 /*
 * View
-* 
+*
 * Used attributes
 * name default 'standard'
 * flag default 0
@@ -24,7 +24,7 @@ class View extends BaseClass{
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
@@ -70,7 +70,7 @@ class View extends BaseClass{
 }
 
 // helper function to generate view window
-function ViewByWindow($name, 
+function ViewByWindow($name,
 						$leftBottom = array(0,0),
 						$rightTop = array(1,1),
 						$attributes = array()){

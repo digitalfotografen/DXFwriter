@@ -21,8 +21,8 @@ public function testFullOutput() {
 
 	$b = new DxfBlock(array('name' => 'test'));
 	$b->append(new DxfSolid(array('points' => array(array(0, 0),
-												array(1, 0), 
-												array(1, 1), 
+												array(1, 0),
+												array(1, 1),
 												array(0, 1)),
 	            				'color' => 1)
 	));
@@ -44,27 +44,27 @@ public function testFullOutput() {
 	)));
 
 	$d->append(new DxfCircle(array('center' => array(1, 1), 'color'=>3)));
-	$d->append(new DxfFace(array('points'=>array(array(0, 0), 
-											array(1, 0), 
-											array(1, 1), 
+	$d->append(new DxfFace(array('points'=>array(array(0, 0),
+											array(1, 0),
+											array(1, 1),
 											array(0, 1)),
 								'color'=>4)
 	));
 
 
-	$d->append(new DxfInsert(array('name'=>'test', 
-								'point'=>array(3, 3), 
-								'cols'=>5, 
+	$d->append(new DxfInsert(array('name'=>'test',
+								'point'=>array(3, 3),
+								'cols'=>5,
 								'colspacing'=>2)));
 
 	$d->append(new DxfLine(array('lineType'=>'DASHED',
-								'points'=>array(array(0, 0), 
+								'points'=>array(array(0, 0),
 											array(5, 5))
 	)));
 	/*
 	$d->append(new DxfLwPolyLine(array('points'=>array(array(0, 0),
-											array(1, 0), 
-											array(1, 1), 
+											array(1, 0),
+											array(1, 1),
 											array(0, 1)),
 	            				'flag'=>129,
 	            				'layer' => "DXFWRITER",
@@ -76,8 +76,8 @@ public function testFullOutput() {
 	*/
 
 	$d->append(new DxfPolyLine(array('points'=>array(array(1, 1),
-											array(20, 10), 
-											array(20, 20), 
+											array(20, 10),
+											array(20, 20),
 											array(1, 15)),
 	            				'lineType'=>'DASHED',
 	//            				'layer' => 'DXFWRITER',
@@ -95,7 +95,7 @@ public function testFullOutput() {
 											array(9, 9)),
 								'color' => 3)
 	));
-	$d->append(new DxfText(array('text' => 'Testing testing!', 
+	$d->append(new DxfText(array('text' => 'Testing testing!',
 							'point' => array(3, 0)
 	)));
 

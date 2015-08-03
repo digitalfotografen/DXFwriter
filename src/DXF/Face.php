@@ -4,7 +4,7 @@ namespace DXF;
 /**
 * 3dface
 * subclass of Entity
-* 
+*
 * Used attributes
 * points (required) default null
 *
@@ -15,7 +15,7 @@ class Face extends Entity{
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/

@@ -4,7 +4,7 @@ namespace DXF;
 /**
 * Colored solid fill based on three or four points
 * subclass of Entity
-* 
+*
 * Used attributes
 * points (required) array of three or four points
 */
@@ -14,7 +14,7 @@ class Solid extends Entity{
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/

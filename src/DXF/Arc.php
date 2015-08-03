@@ -4,7 +4,7 @@ namespace DXF;
 /**
 * Arc, angles in degrees.
 * subclass of Entity
-* 
+*
 * Used attributes
 * center default array(0,0,0)
 * radius default 1
@@ -16,7 +16,7 @@ class Arc extends Entity{
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  	Array	$attributes	array of attributes
 	*/

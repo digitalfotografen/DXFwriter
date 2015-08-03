@@ -3,7 +3,7 @@ namespace DXF;
 
 /**
 * Base class
-* 
+*
 * This is the base class to all classes in Writer
 * Data is stored in the attributes array
 */
@@ -13,7 +13,7 @@ class BaseClass{
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  	Array	$attributes	array of attributes
 	* @return 	string	the string representation of all values
@@ -35,7 +35,7 @@ class BaseClass{
 
 	/*
 	* Merge and convert array of values to one string
-	* Call __toString method on each value 
+	* Call __toString method on each value
 	* Calls point for each point
 	*
 	* @param  	Array	$values	array of values
@@ -59,7 +59,7 @@ class BaseClass{
 */
 function point($x, $index = 0){
 	$strings = array();
-	
+
 	//echo print_r($x);
 	for ($i = 0; $i < count($x); $i++){
 		$strings[] = sprintf("%s\n%1.3F\n", 10*($i+1)+$index, $x[$i]);
@@ -77,7 +77,7 @@ function point($x, $index = 0){
 */
 function points($p, $useIndex = true){
 	$strings = array();
-	
+
 	for ($i=0; $i < count($p); $i++){
 		if ($useIndex){
 			$strings[] = point($p[$i], $i);

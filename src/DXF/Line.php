@@ -4,7 +4,7 @@ namespace DXF;
 /**
 * Line
 * subclass of Entity
-* 
+*
 * Used attributes
 * points (required) default array of points
 */
@@ -14,7 +14,7 @@ class Line extends Entity{
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
