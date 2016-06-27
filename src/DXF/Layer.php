@@ -1,28 +1,28 @@
 <?php
-require_once 'BaseClass.php';
+namespace DXF;
 
 /**
 * Layer
-* 
+*
 * Used attributes
-* name default 'dxfwriter'
+* name default 'Writer'
 * flag default 64
 * color default 7
 * lineType default 'continuous'
 */
 
-class DxfLayer extends DxfBaseClass{
+class Layer extends BaseClass{
 
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
 	function __construct($attributes = array()){
 		$defaults = array();
-		$defaults['name'] = 'dxfwriter';
+		$defaults['name'] = 'Writer';
 		$defaults['flag'] = 64;
 		$defaults['color'] = 7;
 		$defaults['lineType'] = 'continuous';
@@ -43,5 +43,4 @@ class DxfLayer extends DxfBaseClass{
 									$this->attributes['lineType']
 				);
 	}
-}
-?>
+}#

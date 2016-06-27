@@ -1,0 +1,29 @@
+{
+	"name": "g105b/dxfwriter",
+
+	"description": "Write AutoCad DXF files",
+
+	"license": [
+		"MIT"
+	],
+
+	"type": "library",
+
+	"autoload": {
+		"psr-4": {
+			"DXF\\": "./src/DXF"
+		}
+	},
+
+	"require": {
+		"phpunit/phpunit": "4.1.*"
+	},
+
+	"keywords": [
+		"dxf",
+		"autocad",
+		"drawing",
+		"CAD",
+		"3D"
+	]
+}

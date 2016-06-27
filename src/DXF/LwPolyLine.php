@@ -1,27 +1,25 @@
 <?php
-require_once 'Entity.php';
+namespace DXF;
 
 /**
-* PolyLine
+* LwPolyLine
 * This is a LWPOLYLINE. I have no idea how it differs from a normal PolyLine
 * I am not sure if the class works, but i doesn't break things...
-*
-* TODO: Finish polyline (now implemented as a series of lines)
+* TODO: Check how this should work
 *
 * subclass of Entity
-* 
+*
 * Used attributes
 * points (required) default none
 * flag default 0
-* width (optional)
 */
 
-class DxfPolyLine extends DxfEntity{
+class LwPolyLine extends Entity{
 
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
@@ -39,22 +37,18 @@ class DxfPolyLine extends DxfEntity{
 	*/
 	function __toString(){
 		// TODO all are string values, maybee som should be decimal
-		$result = sprintf("0\nPOLYLINE\n66\n1\n%s\n70\n%s\n%s", // 66\n1\n entities follow
+		$result = sprintf("0\nLWPOLYLINE\n%s\n70\n%s\n",
 									$this->common(),
-									$this->attributes['flag'],
-									point($this->attributes['points'][0])
-				);
+									$this->attributes['flag']
+		);
 		if (isset($this->attributes['width'])){
-			$result .= sprintf("43\n%s\n", 
+			$result .= sprintf("43\n%s\n",
 								$this->attributes['width']);
 		}
-		foreach ($this->attributes['points'] as $p){
-			$result .= sprintf("0\nVERTEX\n%s\n%s", 
-									$this->common(), 
-									point($p));
-		}
-		$result .= "0\nSEQEND\n";
+		$result .= sprintf("90\n%s\n%s",
+								count($this->attributes['points']),
+								points($this->attributes['points'], false)
+		);
 		return $result;
 	}
-}
-?>
+}#

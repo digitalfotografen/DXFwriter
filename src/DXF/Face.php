@@ -1,20 +1,21 @@
 <?php
-require_once 'Entity.php';
+namespace DXF;
 
 /**
-* Line
+* 3dface
 * subclass of Entity
-* 
+*
 * Used attributes
-* points (required) default array of points
+* points (required) default null
+*
 */
 
-class DxfLine extends DxfEntity{
+class Face extends Entity{
 
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
@@ -31,10 +32,9 @@ class DxfLine extends DxfEntity{
 	*/
 	function __toString(){
 		// TODO all are string values, maybee som should be decimal
-		return sprintf("0\nLINE\n%s\n%s",
+		return sprintf("0\n3DFACE\n%s\n%s",
 									$this->common(),
 									points($this->attributes['points'])
 				);
 	}
-}
-?>
+}#

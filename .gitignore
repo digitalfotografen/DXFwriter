@@ -1,2 +1,6 @@
 .DS_Store
 *.dxf
+*.phar
+vendor/*
+test/Report/*
+test/phpunit.output.*

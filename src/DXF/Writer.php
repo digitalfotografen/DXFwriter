@@ -1,35 +1,14 @@
 <?php
-// DXF-writer
-// Inspired by https://github.com/nycresistor/SDXF/blob/master/sdxf.py
-require_once 'lib/BaseClass.php';
-require_once 'lib/Entity.php';
-require_once 'lib/Collection.php';
-require_once 'lib/Block.php';
-require_once 'lib/Layer.php';
-require_once 'lib/LineType.php';
-require_once 'lib/Style.php';
-require_once 'lib/View.php';
-require_once 'lib/Arc.php';
-require_once 'lib/Circle.php';
-require_once 'lib/Face.php';
-require_once 'lib/Insert.php';
-require_once 'lib/Line.php';
-require_once 'lib/LwPolyLine.php';
-require_once 'lib/Point.php';
-require_once 'lib/PolyLine.php';
-require_once 'lib/Solid.php';
-require_once 'lib/Text.php';
+namespace DXF;
 
+class Writer extends Collection {
 
-
-class DxfWriter extends DxfCollection{
-	
 	var $blocks = null;
 	var $header = null;
 	var $layers = null;
 	var $styles = null;
 	var $views = null;
-	
+
 	function __construct($attributes = array()){
 		$defaults = array();
 		$defaults['insbase'] = array(0.0, 0.0, 0.0);
@@ -37,18 +16,18 @@ class DxfWriter extends DxfCollection{
 		$defaults['extmax'] = array(0.0, 0.0);
 		$defaults['fileName'] = 'test.dxf';
 		//$defaults['tdcreate'] = time();
-		
+
 		parent::__construct(array_merge($defaults, $attributes));
-		
+
 		$this->attributes['acadver'] = "9\n\$ACADVER\n1\nAC1009\n"; //version R14
-		
+
 		$this->blocks = array();
 		$this->header = array($this->attributes['acadver']);
-		$this->layers = array(new DxfLayer());
-		$this->lineTypes = array(new DxfLineType());
-		$this->styles = array(new DxfStyle());
+		$this->layers = array(new Layer());
+		$this->lineTypes = array(new LineType());
+		$this->styles = array(new Style());
 		$this->views = array();
-		
+
 		//echo print_r($this->attributes);
 	}
 	/*
@@ -57,7 +36,7 @@ class DxfWriter extends DxfCollection{
 	function name($name){
 		return sprintf("9\n\$%s\n", strtoupper($name));
 	}
-	
+
 	/*
 	* Point setting from drawing like extmin,extmax,...
 	*/
@@ -80,7 +59,7 @@ class DxfWriter extends DxfCollection{
 		$xstr = isset($x) ? implode($this->stringArray($x),"\n") : '';
 		return sprintf("0\nTABLE\n2\n%s\n70\n%d\n%s\n0\nENDTAB\n", strtoupper($name), count($x), $xstr);
 	}
-	
+
 	function appendBlock($block){
 		$this->blocks[] = $block;
 	}
@@ -113,24 +92,24 @@ class DxfWriter extends DxfCollection{
 	* Returns drawing as dxf string.
 	*/
 	function __toString(){
-		
+
 		$this->header[] = $this->point('insbase', $this->attributes['insbase']);
 		$this->header[] = $this->point('extmin', $this->attributes['extmin']);
 		$this->header[] = $this->point('extmax', $this->attributes['extmax']);
 		//$this->header[] = $this->point('extmax', $this->attributes['extmax']);
-		//$this->header[] = sprintf("9\n\$%s\n40\n%s\n",'TDCREATE', tdDate($this->attributes['tdcreate'])); 
+		//$this->header[] = sprintf("9\n\$%s\n40\n%s\n",'TDCREATE', tdDate($this->attributes['tdcreate']));
 		$header = $this->section('header', $this->header);
-		
+
 		$tables = array();
 		$tables[] = $this->table('ltype', $this->stringArray($this->lineTypes) );
 		$tables[] = $this->table('layer', $this->stringArray($this->layers) );
 		$tables[] = $this->table('style', $this->stringArray($this->styles) );
 		$tables[] = $this->table('view', $this->stringArray($this->views) );
 		$tables = $this->section('tables', $tables);
-		
+
 		$blocks = $this->section('blocks', $this->blocks);
 		$entities = $this->section('entities', $this->entities);
-		
+
 		return implode("\n", array($header, $tables, $blocks, $entities, "0\nEOF\n"));
 	}
 
@@ -144,7 +123,4 @@ class DxfWriter extends DxfCollection{
 		fwrite($fh, sprintf("%s", $this));
 		fclose($fh);
 	}
-}
-
-
-?>
+}#

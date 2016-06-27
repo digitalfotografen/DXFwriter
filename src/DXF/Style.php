@@ -1,9 +1,9 @@
 <?php
-require_once 'BaseClass.php';
+namespace DXF;
 
 /*
 * Style - Text style
-* 
+*
 * Used attributes
 * name default 'standard'
 * flag default 0
@@ -17,12 +17,12 @@ require_once 'BaseClass.php';
 *
 */
 
-class DxfStyle extends DxfBaseClass{
+class Style extends BaseClass{
 
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
@@ -58,5 +58,4 @@ class DxfStyle extends DxfBaseClass{
 									strtoupper($this->attributes['font']),
 									strtoupper($this->attributes['bigFont']));
 	}
-}
-?>
+}#

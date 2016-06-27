@@ -1,9 +1,9 @@
 <?php
-require_once 'Collection.php';
+namespace DXF;
 
 /**
 * Block of Entities
-* 
+*
 * Stores a collection of entities (geometric forms) so that they can be reused
 * as a component
 *
@@ -20,17 +20,17 @@ require_once 'Collection.php';
 * bigFont default ''
 */
 
-class DxfBlock extends DxfCollection{
+class Block extends Collection{
 
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  	Array	$attributes	array of attributes
 	* @param  	Array	$entities array of entities
 	*/
-	function __construct($attributes = array(), $entities = array()){		
+	function __construct($attributes = array(), $entities = array()){
 		$defaults = array();
 		$defaults['name'] = 'block';
 		$defaults['flag'] = 0;

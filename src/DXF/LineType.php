@@ -1,9 +1,9 @@
 <?php
-require_once 'BaseClass.php';
+namespace DXF;
 
 /**
 * LineType
-* 
+*
 * Used attributes
 * name default 'continuous'
 * flag default 64
@@ -14,12 +14,12 @@ require_once 'BaseClass.php';
 * TODO: Implement lineType elements
 */
 
-class DxfLineType extends DxfBaseClass{
+class LineType extends BaseClass{
 
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
@@ -29,10 +29,10 @@ class DxfLineType extends DxfBaseClass{
 		$defaults['flag'] = 64;
 		$defaults['description'] = 'Solid line';
 		// TODO: Implement lineType elements
-		//length (49), 
+		//length (49),
 		//elementType Complex linetype element (74)
 		// shapeNo shape numeber (75)
-		$defaults['elements'] = array(); 
+		$defaults['elements'] = array();
 		parent::__construct(array_merge($defaults, $attributes));
 	}
 
@@ -53,7 +53,7 @@ class DxfLineType extends DxfBaseClass{
 						$length += abs($value);
 						$elementStr .= sprintf("\n49\n%1.3F", $value);
 						break;
-						
+
 					case 'elementType':
 						$elementStr .= sprintf("\n74\n%s", $value);
 						break;
@@ -63,7 +63,7 @@ class DxfLineType extends DxfBaseClass{
 						break;
 				}
 			}
-		}		
+		}
 
 		$result = sprintf("0\nLTYPE\n2\n%s\n70\n%s\n3\n%s\n72\n65\n73\n%s\n40\n%1.3F%s",
 									$this->attributes['name'],
@@ -72,9 +72,8 @@ class DxfLineType extends DxfBaseClass{
 									count($this->attributes['elements']),
 									$length,
 									$elementStr
-									
+
 				);
 		return $result;
 	}
-}
-?>
+}#

@@ -1,20 +1,20 @@
 <?php
-require_once 'Entity.php';
+namespace DXF;
 
 /**
-* Colored solid fill based on three or four points
+* Line
 * subclass of Entity
-* 
+*
 * Used attributes
-* points (required) array of three or four points
+* points (required) default array of points
 */
 
-class DxfSolid extends DxfEntity{
+class Line extends Entity{
 
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  Array	$attributes	array of attributes
 	*/
@@ -31,14 +31,9 @@ class DxfSolid extends DxfEntity{
 	*/
 	function __toString(){
 		// TODO all are string values, maybee som should be decimal
-		$result = sprintf("0\nSOLID\n%s\n%s",
+		return sprintf("0\nLINE\n%s\n%s",
 									$this->common(),
 									points($this->attributes['points'])
 				);
-		if (count($this->attributes['points']) < 4){
-			$result .= point($this->attributes['points'][2]);
-		}
-		return $result;
 	}
-}
-?>
+}#

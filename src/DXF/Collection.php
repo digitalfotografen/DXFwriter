@@ -1,24 +1,23 @@
 <?php
-require_once 'BaseClass.php';
-require_once 'Entity.php';
+namespace DXF;
 
 /**
 * Collection of Entities
-* 
-* Stores collections of geometric figures 
+*
+* Stores collections of geometric figures
 *
 * Entities are stored inte the entities array
-* This is the base class of DXFwriter and Block
-* 
+* This is the base class of Writer and Block
+*
 */
 
-class DxfCollection extends DxfBaseClass{
+class Collection extends BaseClass{
 	var $entities = null;
-	
+
 	/*
 	* Constructor
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes 
+	* after setting default attributes
 	*
 	* @param  	Array	$attributes	array of attributes
 	* @param  	Array	$entities array of entities
@@ -28,7 +27,7 @@ class DxfCollection extends DxfBaseClass{
 		foreach ($entities as $entity){
 			$this->append($entity->copy());
 		}
-		
+
 		parent::__construct($attributes);
 	}
 
@@ -56,6 +55,4 @@ class DxfCollection extends DxfBaseClass{
 		return implode($strings);
 	}
 
-}
-
-?>
+}#

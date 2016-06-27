@@ -1,15 +1,15 @@
 <?php
-require_once 'BaseClass.php';
+namespace DXF;
 
 /**
 * Entity
-* 
+*
 * This is the base class to all geomtric forms (Arc, Circle, Text...)
 * Data is stored in the attributes array of the BaseClass
-* 
+*
 */
 
-class DxfEntity extends DxfBaseClass{
+class Entity extends BaseClass{
 
 	var $parent = null;
 
@@ -19,7 +19,7 @@ class DxfEntity extends DxfBaseClass{
 	* Layer is default 0
 	*
 	* It is recommended that sublasses calls parent::__construct($attributes)
-	* after setting default attributes. 
+	* after setting default attributes.
 	*
 	* @param  	Array	$attributes	array of attributes
 	*/
@@ -27,7 +27,7 @@ class DxfEntity extends DxfBaseClass{
 		$defaults = array(
 				'layer' => 0
 		);
-		
+
 		parent::__construct(array_merge($defaults, $attributes));
 	}
 
@@ -47,7 +47,7 @@ class DxfEntity extends DxfBaseClass{
 		if (isset($this->attributes['rgbColor'])){
 			$result .= sprintf("\n420\n%s", $this->attributes['rgbColor']);
 		}
-*/		
+*/
 		if (isset($this->attributes['extrusion'])){
 			$result .= sprintf("\n%s", point($this->attributes['extrusion'], 200));
 		}
@@ -65,6 +65,4 @@ class DxfEntity extends DxfBaseClass{
 		}
 		return $result;
 	}
-}
-
-?>
+}#
